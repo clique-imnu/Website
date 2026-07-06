@@ -17,3 +17,6 @@ club-animated-website-inspiration/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# CI workflow — re-enable once the gh token has the "workflow" scope
+.github/
