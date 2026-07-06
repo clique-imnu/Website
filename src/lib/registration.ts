@@ -5,7 +5,7 @@
 // deploy it, then paste the deployment /exec URL below. Until then the form
 // runs in demo mode: submissions are kept in localStorage so nothing is lost.
 
-export const SHEET_WEBHOOK_URL = ''; // <-- paste your Apps Script /exec URL here
+export const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwVsaxgzMGssciR51myj5TT2UQIPMNktDRr-pCfsrTLKeWBffffUKZepnXeMrD22rSX/exec'; // <-- paste your Apps Script /exec URL here
 
 export interface Registration {
   name: string;
