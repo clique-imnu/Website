@@ -1,0 +1,156 @@
+:root {
+  --accent: #4DE8FF;
+  --lime: #CDFF4D;
+  --pink: #FF6FB5;
+  --ticker-dur: 30s;
+  --shapes-display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #0B0B0B;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0B0B0B;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+.hover-accent:hover { color: var(--accent) !important; }
+.hover-sound:hover { border-color: var(--accent) !important; color: #F5F3F0 !important; }
+.hover-card:hover { border-color: color-mix(in oklab, var(--accent) 60%, transparent) !important; }
+.hover-member-btn:hover { box-shadow: 0 0 40px color-mix(in oklab, var(--accent) 40%, transparent); }
+.hover-lurk:hover { background: #0B0B0B14 !important; }
+
+/* /join form hierarchy: FIELD LABEL (#F5F3F0, bright) > placeholder (#7A736A, dim
+   but readable) > typed text (#F5F3F0). The label is now the most prominent so
+   users scan the "FULL NAME" line first, then read the hint. */
+.join-input::placeholder,
+.join-input::-webkit-input-placeholder { color: #7A736A; opacity: 1; }
+.join-input::-moz-placeholder { color: #7A736A; opacity: 1; }
+.join-input:-ms-input-placeholder { color: #7A736A; opacity: 1; }
+.join-input:focus { border-color: var(--accent); border-style: solid; }
+
+/* marquee member names → dossier links, RGB-split glitch on hover */
+.glitch-name {
+  text-decoration: none;
+  color: inherit;
+  -webkit-text-stroke: inherit;
+  display: inline-block;
+  transition: transform 0.15s;
+}
+.glitch-name:hover {
+  color: var(--accent);
+  -webkit-text-stroke: 0px transparent;
+  text-shadow: 3px 0 var(--pink), -3px 0 #4DE8FF;
+  transform: skewX(-6deg);
+  animation: glitchJitter 0.25s steps(2) infinite;
+}
+@keyframes glitchJitter {
+  0% { translate: 0 0; }
+  50% { translate: 1px -2px; }
+  100% { translate: -1px 1px; }
+}
+
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(90%) rotate(4deg); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes tickerRev {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@keyframes floatA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(70px, -50px) scale(1.18); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translate(0, 0) scale(1.1); }
+  50% { transform: translate(-60px, 40px) scale(0.95); }
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+@keyframes wipeUp {
+  from { transform: none; }
+  to { transform: translateY(-101%); visibility: hidden; }
+}
+@keyframes loaderBar {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+@keyframes bob {
+  from { transform: translateY(-2px); }
+  to { transform: translateY(5px); }
+}
+@keyframes crtFlicker {
+  0%, 100% { opacity: 0.9; }
+  4% { opacity: 0.74; }
+  8% { opacity: 0.92; }
+  32% { opacity: 0.86; }
+  36% { opacity: 0.98; }
+  62% { opacity: 0.8; }
+  66% { opacity: 0.94; }
+  84% { opacity: 0.87; }
+}
+@keyframes crtSweep {
+  from { top: -26%; }
+  to { top: 112%; }
+}
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 4px 4px 0 #00000080, 0 0 0 color-mix(in oklab, var(--accent) 60%, transparent);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 4px 4px 0 #00000080, 0 0 26px color-mix(in oklab, var(--accent) 70%, transparent);
+  }
+}
+
+@media (max-width: 720px) {
+  [data-mhide] { display: none !important; }
+  [data-mpad] { padding-left: 18px !important; padding-right: 18px !important; }
+  [data-mod-a] { grid-template-columns: 1fr !important; }
+  [data-mnav] { padding: 12px 16px !important; }
+  [data-mnavlinks] { gap: 14px !important; }
+  [data-mjs] { position: static !important; margin: 18px auto 0 auto !important; width: fit-content; }
+}
