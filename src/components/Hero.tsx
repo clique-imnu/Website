@@ -67,6 +67,7 @@ export function Hero({ gridRef, heroContentRef, heroCanvasRef }: HeroProps) {
       />
 
       <div
+        data-hero-shape="true"
         style={{
           position: 'absolute',
           top: '5%',
@@ -82,8 +83,8 @@ export function Hero({ gridRef, heroContentRef, heroCanvasRef }: HeroProps) {
           data-mhide="true"
           style={{
             position: 'absolute',
-            bottom: '14%',
-            right: '10%',
+            bottom: '34%',
+            right: '4%',
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: 10,
             letterSpacing: '0.2em',

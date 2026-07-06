@@ -174,7 +174,23 @@ button {
     box-shadow: 3px 3px 0 #00000080 !important;
   }
   [data-hsticker] + [data-hsticker] { rotate: 2deg !important; }
-  [data-hero-content] { padding-top: 92px !important; }
+
+  /* Hero shape on mobile: the desktop layout parks a tiny wireframe absolutely
+     in the top-right corner, which on phones leaves a large dead gap above the
+     wordmark (and the gap grows on taller devices). Pull it into normal flow as
+     a centred centrepiece that sits directly above CLIQUE, so the hero reads as
+     one tight stack regardless of screen height. Height is capped by vh so it
+     never crowds the wordmark on short phones. */
+  #top { justify-content: flex-end !important; }
+  [data-hero-shape] {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    width: min(72vw, 300px, 34vh) !important;
+    height: min(72vw, 300px, 34vh) !important;
+    margin: 0 auto -14px auto !important;
+  }
+  [data-hero-content] { padding-top: 20px !important; }
 
   /* Registration "Lock in." sticker drops below the heading on mobile. */
   [data-rsticker] {

@@ -8,18 +8,20 @@ export interface SoundApi {
   blip: (freq: number, vol: number, dur: number, force?: boolean) => void;
 }
 
-// Tiny Web Audio "blip" synth used for hover/click feedback across the site,
-// gated behind an opt-in toggle (persisted) since autoplay-adjacent sound
-// needs a user gesture and shouldn't surprise anyone by default.
+// Tiny Web Audio "blip" synth used for hover/click feedback across the site.
+// Sound is ON by default; the AudioContext still only starts on the first real
+// user gesture (hover/click), so nothing plays until the visitor interacts.
+// A visitor who toggles it off has that choice persisted and respected.
 export function useSound(): SoundApi {
-  const [enabled, setEnabled] = useState(false);
+  const [enabled, setEnabled] = useState(true);
   const acRef = useRef<AudioContext | null>(null);
   const enabledRef = useRef(enabled);
   enabledRef.current = enabled;
 
   useEffect(() => {
     try {
-      if (localStorage.getItem(STORAGE_KEY) === '1') setEnabled(true);
+      // Default on: only an explicit '0' (user turned it off before) disables it.
+      if (localStorage.getItem(STORAGE_KEY) === '0') setEnabled(false);
     } catch {
       // ignore storage access errors (private browsing, etc.)
     }
