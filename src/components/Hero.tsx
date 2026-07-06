@@ -103,6 +103,7 @@ export function Hero({ gridRef, heroContentRef, heroCanvasRef }: HeroProps) {
       <div
         ref={heroContentRef}
         data-mpad="true"
+        data-hero-content="true"
         style={{
           position: 'relative',
           padding: '130px 32px 0 32px',
@@ -130,6 +131,7 @@ export function Hero({ gridRef, heroContentRef, heroCanvasRef }: HeroProps) {
         </div>
 
         <h1
+          data-hero-h1="true"
           style={{
             margin: 0,
             fontFamily: "'Unbounded', sans-serif",
@@ -157,6 +159,7 @@ export function Hero({ gridRef, heroContentRef, heroCanvasRef }: HeroProps) {
             </span>
           ))}
           <div
+            data-hsticker="true"
             style={{
               position: 'absolute',
               top: -34,
@@ -180,6 +183,7 @@ export function Hero({ gridRef, heroContentRef, heroCanvasRef }: HeroProps) {
             </span>
           </div>
           <div
+            data-hsticker="true"
             style={{
               position: 'absolute',
               bottom: -14,

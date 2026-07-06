@@ -399,6 +399,7 @@ export function JoinPage() {
                 Lock in.
               </h1>
               <div
+                data-rsticker="true"
                 style={{
                   position: 'absolute',
                   top: -8,

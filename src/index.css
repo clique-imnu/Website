@@ -153,4 +153,37 @@ button {
   [data-mnav] { padding: 12px 16px !important; }
   [data-mnavlinks] { gap: 14px !important; }
   [data-mjs] { position: static !important; margin: 18px auto 0 auto !important; width: fit-content; }
+
+  /* Hero: shrink the wordmark so CLIQUE fits on one line, then let the playful
+     stickers sit as compact pills on their own lines below it, instead of
+     overlapping the letters. */
+  [data-hero-h1] {
+    display: block !important;
+    white-space: nowrap !important;
+    font-size: clamp(38px, 11.7vw, 92px) !important;
+  }
+  [data-hsticker] {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    rotate: -2deg !important;
+    margin: 12px 0 0 0 !important;
+    box-shadow: 3px 3px 0 #00000080 !important;
+  }
+  [data-hsticker] + [data-hsticker] { rotate: 2deg !important; }
+  [data-hero-content] { padding-top: 92px !important; }
+
+  /* Registration "Lock in." sticker drops below the heading on mobile. */
+  [data-rsticker] {
+    position: static !important;
+    inset: auto !important;
+    rotate: -2deg !important;
+    margin: 14px 0 0 0 !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
 }
